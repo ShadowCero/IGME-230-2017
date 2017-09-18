@@ -1,0 +1,52 @@
+header {
+    background: #D3C1C1;
+    border: solid black 1px;
+    font-weight: bold;
+    text-align: center;
+    width: 1900px;
+}
+
+table {
+    font-size: 18px;
+    float: right;
+    position: relative;
+}
+
+th {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    border: solid black 2px;
+    padding: 4px;
+}
+
+/* Id and classes */
+#subjectLine {
+    background-color: rgb(221, 221, 221);
+    font-weight: bold;
+}
+
+#left {
+    width: 940px;
+    float: left;
+    background: white;
+    position: relative;
+}
+
+#right {
+    width: 940px;
+    float: left;
+    position: relative;
+    border: 1px solid red;
+    padding: 2 px;
+}
+
+.center {
+    position: absolute;
+    top: 200px; left: 0; right:0;
+    margin: auto;
+}

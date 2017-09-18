@@ -47,3 +47,4 @@ Interests in:
 * Game Design
 * Game Sound
 * Photoshop
+* AI
