@@ -103,5 +103,19 @@ li#currentPage a{
     src: url(../media/Square.ttf) format("truetype");
 }
 @media screen and (max-width: 480px){
-    
+    header nav {
+        margin: 0 0 5px;
+        width: 100%;
+    }
+    header nav li {
+        margin: 0;
+        display: block;
+    }
+    header nav li a {
+        display: block;
+        text-align: center;
+    }
+    header h1 {
+        font-size: 70px;
+    }
 }
