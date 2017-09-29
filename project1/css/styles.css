@@ -39,6 +39,12 @@ footer {
     background-color: #FFC778;
     text-align: center;
 }
+img {
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    width: 100%;
+}
 
 
 /* Nav bar */
@@ -73,6 +79,9 @@ header nav ul li a:hover{
     margin: auto;
     float: left;
     width: 100%;
+}
+.mockup {
+    max-width: 700px;
 }
 
 /* ids */
