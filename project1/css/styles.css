@@ -10,17 +10,34 @@ body{
 header h1{
     font-weight: bold;
     text-align: center;
-    font-size: 70px;
+    font-size: 100px;
+    font-family: geoFont, Verdana, Tahoma, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 header h1 a{
     color: inherit;
     text-decoration: inherit;
 }
+section {
+    margin-left: 5px;
+    margin-right: 5px;    
+    border-bottom: 1px solid black;
+}
 section h1 {
     text-align: center;
 }
+article{
+    margin-left: 5px;
+    margin-right: 5px;
+    border-bottom: 1px solid black;
+}
 article ul {
     list-style-type: none;
+}
+footer {
+    background-color: #FFC778;
+    text-align: center;
 }
 
 
@@ -67,4 +84,15 @@ header nav ul li a:hover{
     padding-bottom: 2%;
     padding-right: 2%;
 }
+li#currentPage a{
+    background-color: #CC7800;
+}
 
+/* Media Queries */
+@font-face{
+    font-family: geoFont;
+    src: url(../media/Square.ttf) format("truetype");
+}
+@media screen and (max-width: 480px){
+    
+}
