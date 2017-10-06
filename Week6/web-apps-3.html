@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>DOM-3</title>
+    <style>
+        body {
+            border: 1px solid gray;
+        }
+
+        p b {
+            transform: rotate(20deg)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Page</h1>
+    <h2>Info</h2>
+    <h2>Pictures</h2>
+    <h2>More Info</h2>
+    <p>Blah <b>Blah</b> Blah</p>
+    <p>Blah <b>Blah</b> Blah</p>
+    <p id="lastParagraph">Blah <b>Blah</b> Blah</p>
+    <footer>Copyright &copy; <b>20XX</b></footer>
+    <script>
+        //Get references
+        let allh2 = document.querySelectorAll('h2');
+        let allp =document.querySelectorAll('p');
+
+        //make changes
+        document.querySelector('h1').innerHTML = "My UFO Page";
+        allh2[0].innerHTML = "My UFO Info";
+        allh2[1].innerHTML = "My UFO Pictures";
+        allh2[2].innerHTML = "";
+        document.body.style.fontFamily = "sans-serif";
+        document.body.style.color = "#8e0000";
+        
+        //p1 changes
+        let str = "http://www.nuforc.org";
+        allp[0].innerHTML = "Report your UFO sightings here: " + str.link("http://www.nuforc.org");
+        allp[0].style.color = "green";
+        allp[0].style.fontWeight = "bold";
+        allp[0].style.fontSize = "2em";
+        allp[0].style.textTransform = "uppercase";
+        allp[0].style.textShadow = "3px 2px #A44";
+
+        allp[1].innerHTML = "";
+        allp[2].innerHTML = "<img src='ufo.jpg' alt='UFO image'>";
+        document.querySelector("footer").innerHTML = "&copy;2017 Yash Bagri";
+    </script>
+</body>
+
+</html>
