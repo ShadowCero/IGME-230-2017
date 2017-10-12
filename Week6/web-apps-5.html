@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Web Apps-5</title>
+    <style>
+        body {
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Favorites</h1>
+    <h2>My Favorite Colors</h1>
+
+    <ol id="colorsList">
+
+    </ol>
+
+    <h2>My Favorite Foods</h1>
+
+    <ol id="foodsList">
+
+    </ol>
+
+    <h2>My Favorite Links</h1>
+
+    <ol id="linksList">
+
+    </ol>
+
+    <script>
+        let colors = ["red", "green", "blue", "purple", "pink"];
+        let foods = ["hamburgers","rice","spaghetti","curry","steak"]; // add some foods
+
+        //Get references
+        let foodsList = document.querySelector("#foodsList");
+        let colorsList = document.querySelector("#colorsList");
+        let linksList = document.querySelector("#linksList");
+
+        //function to loop through list
+        function createList(listElement, array){
+            for (let element of array){
+            let item = document.createElement("li");
+            item.innerHTML = element;
+            listElement.appendChild(item);
+            }
+        }
+
+        //Call functions
+        createList(foodsList, foods);
+        createList(colorsList, colors);
+
+        // Optional (worth an extra 5 points) - can you figure out how to pull the key
+        // and value from the links object literal?
+        let links = {
+        "RIT": "http://www.rit.edu",
+        "RWAG": "https://www.facebook.com/RWAGclub",
+        "New Media Club": "http://newmediaclub.cias.rit.edu"
+        }
+
+        for(let element in links){
+            let item = document.createElement("li");
+            item.innerHTML = "<a href=" + links[element] + ">" + element + "</a>";
+            linksList.appendChild(item);
+        }
+
+    </script>
+</body>
+
+</html>

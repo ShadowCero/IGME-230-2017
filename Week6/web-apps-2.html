@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Hello-4</title>
+  <script>
+    // Common JS Objects
+    let colors = ["red", "green", "blue"]; // Array literal
+    let person = { name: "Fred", age: 20 };   // Object literal
+    let month = new Date().getMonth();
+    let age = Math.round(20.999);
+
+    // Treat "primitives" like objects
+    let sum = 99.980809809;             // Number
+    let name = "Fred";                  // String
+    let isLoggedIn = false;             // Boolean
+    let userName = undefined;
+    let data = null;
+
+    colors.push("purple"); //Appends purple to end of the array
+    console.log(colors[3]); //Prints out last element from the colors array
+    //print all values
+    for (let i = 0; i < colors.length; i++) {
+      console.log(colors[i]);
+    }
+    //add school
+    Object.defineProperty(person, 'school', {value: "RIT"});
+    console.log(person.school);
+    //Print number of seconds that have passed since 1970
+    let time = Date.now() / 1000;
+    console.log(time);
+    //print out PI
+    console.log(Math.PI); 
+    //Print out absolute value
+    console.log(Math.abs(-999));
+    //Print out all caps
+    console.log("hello".toUpperCase());
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
