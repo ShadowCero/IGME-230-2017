@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Phrases 1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+        body {
+            background-color: #6B206B;
+            font-family: "Open Sans", sans-serif;
+            font-weight: bolder;
+            color: white;
+        }
+        #wrapper{
+            width: 90%;
+            max-width: 1600px;
+            margin: auto;
+            padding-left: 2%;
+            padding-bottom: 2%;
+            padding-right: 2%;
+        }
+        img {
+            display: block;
+            margin: auto;
+            width: 100%;    
+        }
+        p{
+            text-align: center;
+            font-size: 55px;
+        }
+        h1{
+            font-style: italic;
+            font-size: 70px;
+        }
+        div {
+            position: relative;
+        }
+        section{
+            width: 50%;
+            position: absolute;
+            text-align: center;
+            left: 0; right: 0; top: 0;
+            margin: 0 auto;
+            background: rgb(54, 25, 25);
+            background: rgba(54, 25, 25, .5);
+        }
+        article {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            margin: auto;
+            padding-bottom: 40px;
+            background: rgb(54, 25, 25);
+            background: rgba(54, 25, 25, .5);
+        }
+        footer {
+            position: absolute;
+            left: 0; bottom: 0;
+            margin-left: 0; margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div>
+        <section>
+            <h1>Melee Quotes!</h1>
+        </section>
+        <img src="melee.png" alt="melee preview">
+        <article>
+            <p></p>
+        </article>
+        <footer>
+            &copy;2017 Yash Bagri
+        </footer>
+        </div>
+    </div>
+    
+    <script>
+        let para = document.querySelector("p"); //Get p reference
+        let phrases = ["Don't sleep on the kid","my b",
+        "Life is this crazy mystical thing. And sometimes, you just go out like a buster.",
+        "If you asked M2K who he loved more the ledge or his mom he'd probably tell you the ledge did more for him in his life.",
+        "Did he just walk up slowly... and Downsmash?!"] //Array to store phrases
+        let random = Math.floor(Math.random() * phrases.length); //Generates number from 0 to array length - 1
+        //Set new text
+        para.innerHTML = phrases[random];
+    </script>
+</body>
+</html>
