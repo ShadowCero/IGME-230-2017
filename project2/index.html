@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Music Finder</title>
+    <link href="css/styles.css" type="text/css" rel="stylesheet">    
+
+  <!-- Import JQuery Library -->   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    // 1
+  	window.onload = (e) => {
+          //Constants to hold info that will stay when page is reloaded
+        const searchTerm = document.querySelector("#searchterm");
+        const searchKey = "song";
+          // grab the stored data, will return null if user has never been to this page
+        const storedSearch = localStorage.getItem(searchKey);
+          //If previous search term display it
+        if(storedSearch){
+            searchTerm.value = storedSearch
+        }else{
+            searchTerm.value = "";
+        }
+
+        //Update local storage
+        searchTerm.onchange = e => { localStorage.setItem(searchKey, e.target.value); };
+        document.querySelector("#search").onclick = getData
+    };
+	
+	// 2
+	let displayTerm = "";
+	
+	// 3
+	function getData(){
+		console.log("getData() called");
+
+        //1
+        const ITUNES_URL = "https://itunes.apple.com/search?term=";
+        
+        //3 - Build up our URL string
+        let url = ITUNES_URL;
+
+        //4 Parse the user entered term we wish to search
+        let term = document.querySelector("#searchterm").value;
+
+        //5 - Get rid of any leading and trailing spaces from the form field
+        term = term.trim();
+        displayTerm = term;
+
+        //6 - Encode spaces and special characters
+        terms = term.split(" ");
+        term = "";
+        //Loop through the split string array
+        //If more words add a plus to the end of the string
+        for (let i = 0; i < terms.length; i++){
+            term += terms[i];
+            if (i < terms.length - 1){
+                term += "+";
+            }
+        }
+
+        //7 - If no term to search bail out of the function
+        if(term.length < 1) return;
+
+        //8 - add the search term to the url - the parameter name is 'q'
+        url += term;
+
+        //9 - Grab the user chosen limit from the <select>
+        let limit = document.querySelector("#limit").value;
+        url += "&limit=" + limit;
+
+        //10 - update the UI
+        document.querySelector("#content").innerHTML = "<b>Searching for " + displayTerm + "</b>";
+
+        //11 - What the url looks like
+        console.log(url);
+
+        console.log(jQuery);
+        console.log($); // $ is an alias to the jQuery object
+
+        //12 - Tell JQuery to download the data
+        $.ajax({
+            dataType: "json",
+            url: url,
+            data: null,
+            success: jsonLoaded //13 - Callback function is called when data arrives
+        });
+
+        $("#content").fadeOut(100);
+	}
+	
+    function jsonLoaded(obj){
+        //14 - Just log out of JSON for now
+        console.log("obj = " + obj);
+        console.log("obj stringified = " + JSON.stringify(obj));
+
+        //15 - if there are no results, print a message and return
+        if(!obj.results || obj.results.length == 0){
+            document.querySelector("#content").innerHTML = `<p><i>No results found for ${displayTerm}</i></p>`;
+            $("#content").fadeIn(500);
+            return; //Bail out
+        }
+
+        //16 - If there are results, display how many
+        let results = obj.results;
+        console.log("results.length = " + results.length);
+        let bigString = `<p><i>Displaying ${results.length} results for '${displayTerm}'</i></p>`;
+
+        //17 - start looping (can use a for...of loop)
+        for(let result of results){
+            //18 - get the URL of the Album 
+            let smallURL = result.artworkUrl100;
+            if(!smallURL) smallURL = "images/no-image-found.png";
+
+            //19 - get the URL to song preview
+            let url = result.previewUrl;
+
+            //20 - build <div> to hold each result
+            //ES6 String Templating
+            let line = `<div class='result'><img src='${smallURL}' title= '${result.collectionName}' />`;
+            line += `<span id="trackName">${result.trackName}</span>
+                     <span id="artistName">${result.artistName}</span>
+                     <audio controls>
+                        <source src=${url} type="audio/mpeg"/>
+                     </audio></div>`;
+
+            //22 - concatenate the line to our big chunk of html
+            bigString += line;
+        }
+
+        //23 - throw it into the #content div
+        document.querySelector("#content").innerHTML = bigString;
+
+        //24 - fade it in
+        $("#content").fadeIn(500);
+    }
+  </script>
+
+  
+</head>
+<body>
+<header>
+	<h1>Music Finder</h1>
+</header>
+
+<div class="widgets">
+	Search Term -> 
+	<input id="searchterm" type="text" size="20" maxlength="20" autofocus />
+</div>
+
+<div class="widgets">
+	Max # results -> 
+	<select id="limit">
+		<option value="5">5</option>
+		<option value="10" selected>10</option>
+		<option value="25">25</option>
+		<option value="50">50</option>
+		<option value="100">100</option>
+	</select>
+</div>
+
+<div class="widgets">
+	<button type="button" id="search" class="green">Find some GIFs!<br />:-)</button>
+</div>
+
+<hr>
+
+<h2>Results</h2>
+<div id="content">
+	<p>No data yet!</p>
+</div>
+ 
+
+</body>
+</html>
