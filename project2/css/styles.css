@@ -16,6 +16,7 @@ body{
     width: 80%;
     max-width: 1280px;
     margin: auto;
+    box-shadow : 0 1px 4px rgba(0,0,0,.6);    
 }
 
 #wrapper > *{
@@ -38,7 +39,7 @@ header h1{
 
 #banner{
     width: 100%;
-    background-color: #4058A1;
+    background-color: rgb(64, 88, 161);
 }
 
 /* Button */
@@ -78,11 +79,14 @@ button{
 
 /* Results */
 .result {
+    background-color: #C5CBE3;
     position: relative;
-    height: 175px;
-    width: 100px;
-    float:left;
-    border:1px solid gray;
+    width: 20%;
+    max-width: 200px;
+    height: 170px;
+    display: inline-block;
+    border-left: 4px solid rgba(64, 88, 161, 0.2);
+    border-bottom: 4px solid rgba(64, 88, 161, 0.2);
     padding:5px;
     margin-left:10px;
     margin-bottom:10px;
@@ -90,10 +94,10 @@ button{
 
 .result img {
     position: absolute;
-    left: 5px;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
     bottom: 5px;
     display:block;
-    
 }
 
 .result span{
