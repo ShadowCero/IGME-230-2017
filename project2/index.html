@@ -110,7 +110,7 @@
         for(let result of results){
             //18 - get the URL of the Album 
             let smallURL = result.artworkUrl100;
-            if(!smallURL) smallURL = "images/no-image-found.png";
+            if(!smallURL) smallURL = "../media/no-image-found.png";
 
             //19 - get the URL to song preview
             let url = result.previewUrl;
@@ -139,9 +139,12 @@
   
 </head>
 <body>
+<div id="wrapper">
+<div id="banner">
 <header>
 	<h1>Music Finder</h1>
 </header>
+</div>
 
 <div class="widgets">
 	Search Term -> 
@@ -169,7 +172,7 @@
 <div id="content">
 	<p>No data yet!</p>
 </div>
- 
 
+</div>
 </body>
 </html>
