@@ -88,7 +88,7 @@ button{
     position: relative;
     width: 20%;
     max-width: 200px;
-    height: 185px;
+    height: 190px;
     display: inline-block;
     border-left: 4px solid rgba(64, 88, 161, 0.2);
     border-bottom: 4px solid rgba(64, 88, 161, 0.2);
@@ -115,7 +115,8 @@ button{
 .trackName{
     display: inline-block;
     font-weight: bold;
-    height: 2em;
+    height: 2.5em;
+    overflow-y: hidden;
 }
 
 .artistName{
