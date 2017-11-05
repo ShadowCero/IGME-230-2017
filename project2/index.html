@@ -107,8 +107,8 @@
             //20 - build <div> to hold each result
             //ES6 String Templating
             let line = `<div class='result'>`;
-            line += `<span id="trackName">${result.trackName}</span>
-                     <span id="artistName">${result.artistName}</span>
+            line += `<span class="trackName">${result.trackName}</span>
+                     <span class="artistName">${result.artistName}</span>
                      <audio controls>
                         <source src=${url} type="audio/mpeg"/>
                      </audio><img src='${smallURL}' title= '${result.collectionName}' /></div>`;
