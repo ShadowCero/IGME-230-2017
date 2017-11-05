@@ -72,12 +72,6 @@
         //10 - update the UI
         document.querySelector("#content").innerHTML = "<b>Searching for " + displayTerm + "</b>";
 
-        //11 - What the url looks like
-        console.log(url);
-
-        console.log(jQuery);
-        console.log($); // $ is an alias to the jQuery object
-
         //12 - Tell JQuery to download the data
         $.ajax({
             dataType: "json",
@@ -90,10 +84,6 @@
 	}
 	
     function jsonLoaded(obj){
-        //14 - Just log out of JSON for now
-        console.log("obj = " + obj);
-        console.log("obj stringified = " + JSON.stringify(obj));
-
         //15 - if there are no results, print a message and return
         if(!obj.results || obj.results.length == 0){
             document.querySelector("#content").innerHTML = `<p><i>No results found for ${displayTerm}</i></p>`;
@@ -103,7 +93,6 @@
 
         //16 - If there are results, display how many
         let results = obj.results;
-        console.log("results.length = " + results.length);
         let bigString = `<p><i>Displaying ${results.length} results for '${displayTerm}'</i></p>`;
 
         //17 - start looping (can use a for...of loop)
@@ -117,12 +106,12 @@
 
             //20 - build <div> to hold each result
             //ES6 String Templating
-            let line = `<div class='result'><img src='${smallURL}' title= '${result.collectionName}' />`;
+            let line = `<div class='result'>`;
             line += `<span id="trackName">${result.trackName}</span>
                      <span id="artistName">${result.artistName}</span>
                      <audio controls>
                         <source src=${url} type="audio/mpeg"/>
-                     </audio></div>`;
+                     </audio><img src='${smallURL}' title= '${result.collectionName}' /></div>`;
 
             //22 - concatenate the line to our big chunk of html
             bigString += line;
@@ -163,7 +152,7 @@
 </div>
 
 <div class="widgets">
-	<button type="button" id="search" class="green">Find some GIFs!<br />:-)</button>
+	<button type="button" id="search" class="search">Search</button>
 </div>
 
 <hr>
