@@ -30,7 +30,7 @@
 	// 2
 	let displayTerm = "";
 	
-	// 3
+	// 3 - Grabs the data from the search field and gets the results
 	function getData(){
 		console.log("getData() called");
 
@@ -82,7 +82,8 @@
 
         $("#content").fadeOut(100);
 	}
-	
+    
+    //Formats the results to display each one in its own container
     function jsonLoaded(obj){
         //15 - if there are no results, print a message and return
         if(!obj.results || obj.results.length == 0){
@@ -99,13 +100,12 @@
         for(let result of results){
             //18 - get the URL of the Album 
             let smallURL = result.artworkUrl100;
-            if(!smallURL) smallURL = "../media/no-image-found.png";
+            if(!smallURL) smallURL = "../media/no-image-found.jpg";
 
             //19 - get the URL to song preview
             let url = result.previewUrl;
 
             //20 - build <div> to hold each result
-            //ES6 String Templating
             let line = `<div class='result'>`;
             line += `<span class="trackName">${result.trackName}</span>
                      <span class="artistName">${result.artistName}</span>
@@ -113,7 +113,7 @@
                         <source src=${url} type="audio/mpeg"/>
                      </audio><img src='${smallURL}' title= '${result.collectionName}' /></div>`;
 
-            //22 - concatenate the line to our big chunk of html
+            //22 - concatenate the line to the html
             bigString += line;
         }
 
