@@ -1,0 +1,24 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+*/
+
+img[alt="logo"]{
+    padding-top: .5rem;
+}
+
+nav ul a{
+    font-size: 1.2rem;
+}
+
+a .fa{
+    color: white;
+    padding-right: 15px;
+}
+
+a:hover .fa{
+    color: #ccc;
+}
