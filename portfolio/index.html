@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Portfolio for coder Yash Bagri" />
+    <meta name="author" content="Yash Bagri" />
+    <title>Yash Bagri's Portfolio</title>
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header class="main_nav green">
+        <div class="container">
+            <div class="twelve columns">
+                <div class="logo"><a href="#">Yash Bagri</a></div>
+            </div>
+        </div>
+    </header>
+
+    <div class='container main'>
+        <div class='row'>
+            <div class="four columns portfolio">
+                <a class="image-link" href="media/Clogo.png" title="Current the Dog. Platformer made in a group. Responsible for Level Editor, Enemy Movement, and Physics. <a href='https://github.com/YashBagriGDD/Current'>Github</a>"><img src="media/Clogo.png" alt=""></a>
+            </div>
+            <div class="four columns portfolio">
+                <a class="image-link" href="media/asteroids.png" title="Asteroids recreation in unity. <a href='https://github.com/YashBagriGDD/IGME-202-2017/tree/master/Bagri_Asteroids'>Github</a>"><img src="media/asteroids.png" alt=""></a>
+            </div>
+            <div class="four columns portfolio">
+                <a class="image-link" href="media/music.png" title="Music Finder <a href='https://people.rit.edu/~yxb1236/230/project2/'>Link</a>"><img src="media/music.png" alt=""></a>
+            </div>
+        </div>
+
+        <!-- Reference to add more rows
+        <div class='row' style="margin-bottom: 8%;">
+            <div class="four columns portfolio">
+                <a class="image-link" href="media/TBA.jpg"><img src="media/TBA.jpg" alt=""></a>
+            </div>
+            <div class="four columns portfolio">
+                <a class="image-link" href="media/TBA.jpg"><img src="media/TBA.jpg" alt=""></a>
+            </div>
+            <div class="four columns portfolio">
+                <a class="image-link" href="media/TBA.jpg"><img src="media/TBA.jpg" alt=""></a>
+            </div>
+        </div>
+        -->
+
+    </div>
+    <!-- Container End -->
+
+    <div class="row green">
+        <div class='container'>
+            <div class='four columns'>
+                <img class="avatar" src="media/me.jpg" alt="">
+            </div>
+            <div class="eight columns">
+                <h2 class='bio'>About Yash Bagri</h2>
+                <p class='bio'>Second year student, from Chicago Illinois, at Rochester Institute of Technology in the Game Design and Development program. Gaming has given me so many treasured memories and I want to create games to give other people memories they can treasure.</p>
+                <ul class='bio'>
+                    <li>Rochester, NY</li>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i> yxb1236@rit.edu</li>
+                </ul>
+            </div>
+            <div class="twelve columns">
+                <div class="logo"><a href="media/resume.pdf">Resume</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- Row Color End -->
+
+    <footer>
+        <div class='container'>
+            <div class="row twelve columns">
+                <ul class='social'>
+                    <li class="facebook"><a href="https://www.facebook.com/shadowdueler"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+                    <!-- <li class="twitter"><a href="#"><i class="fa fa-twitter-square fa-lg"></i></a></li> -->
+                    <!-- <li class="instagram"><a href="#"><i class="fa fa-instagram fa-lg"></i></a></li> -->
+                    <!-- <li class="flickr"><a href="#"><i class="fa fa-flickr fa-lg"></i></a></li> -->
+                    <!-- <li class="youtube"><a href="#"><i class="fa fa-youtube-square fa-lg"></i></a></li> -->
+                    <li class="linkedin"><a href="https://www.linkedin.com/in/yash-bagri-9975ab5b/"><i class="fa fa-linkedin-square fa-lg"></i></a></li>
+                    <li class="github"><a href="https://github.com/YashBagriGDD"><i class="fa fa-github-square fa-lg"></i></a></li>
+                </ul>
+            </div>
+            <div class="row twelve columns">
+                <p class='copyright'>&copy; 2017 Yash Bagri. Fonts from Google, Framework from Skeleton, Icons from Font Awesome, Pop up from Magnific Popup. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/jquery.magnific-popup.js"></script>
+    <script type='text/javascript'>
+        // Initialize popup as usual
+        $('.image-link').magnificPopup({
+            type: 'image',
+            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+
+            zoom: {
+                enabled: true, // By default it's false, so don't forget to enable it
+
+                duration: 300, // duration of the effect, in milliseconds
+                easing: 'ease-in-out', // CSS transition easing function
+
+                // The "opener" function should return the element from which popup will be zoomed in
+                // and to which popup will be scaled down
+                // By defailt it looks for an image tag:
+                opener: function (openerElement) {
+                    // openerElement is the element on which popup was initialized, in this case its <a> tag
+                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>
