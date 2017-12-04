@@ -1,0 +1,24 @@
+<html>  
+  <body>           
+    <svg width='100%' height='100%'>
+      <rect x='50' y='50' width='25' height='25' />
+    </svg>
+  </body>
+
+  <script>
+    "use strict";
+    let svg    = document.querySelector( 'svg' );
+    let square = document.querySelector( 'rect' );
+       
+    square.style.transformOrigin = '50% 50%';
+    square.zRot = 0;
+        
+    function animate() {
+      square.zRot += 1;
+      square.style.transform = 'rotateZ(' + square.zRot + 'deg)';
+      requestAnimationFrame( animate );
+    };
+    
+    requestAnimationFrame( animate );
+  </script>
+</html>
