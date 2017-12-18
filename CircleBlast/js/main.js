@@ -82,7 +82,7 @@ function setup() {
 
 function createLabelsAndButtons() {
     let buttonStyle = new PIXI.TextStyle({
-        fill: 0xFF0000,
+        fill: 0x0d9612,
         fontSize: 48,
         fontFamily: "Verdana"
     });
