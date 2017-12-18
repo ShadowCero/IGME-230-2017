@@ -26,6 +26,7 @@ let powerUps = [];
 let time = 0;
 let paused = true;
 
+//Sets up the base of the scenes for each game state
 function setup() {
     stage = app.stage;
     //Create the start scene
@@ -122,11 +123,22 @@ function setup() {
     }
 
     //load sounds
+    deathSound = new Howl({
+        src: ['media/death.wav']
+    });
+    bgm = new Howl({
+        src: ['media/bgm.mp3']
+    });
+    //play bgm on loop
+    bgm.loop(true);
+    bgm.play();
 
     //start update loop
     app.ticker.add(gameLoop);
 }
 
+//Creates the labels for each scene and the buttons to switch between scenes
+//Along with adding the background to each scene
 function createLabelsAndButtons() {
     //add background
     let bg = PIXI.Sprite.fromImage("media/background.png");
@@ -306,6 +318,7 @@ function createLabelsAndButtons() {
 }
 
 //Scene switchers
+//Sets up all the variables to be appropriate for the start of the game
 function startGame(){
     startScene.visible = false;
     helpScene.visible = false;
@@ -326,18 +339,22 @@ function startGame(){
 
     paused = false;
 }
+//Sets the scene to the help menu
 function helpGame(){
     startScene.visible = false;
     helpScene.visible = true;
     gameOverScene.visible = false;
     gameScene.visible = false;
 }
+//Sets the scene to the main menu
 function menuGame(){
     startScene.visible = true;
     helpScene.visible = false;
     gameOverScene.visible = false;
     gameScene.visible = false;
 }
+//Sets the scene to the game over screen
+//Shows player score and high score
 function gameOver(){
     paused = true;
 
@@ -370,7 +387,8 @@ function gameOver(){
     }
 }
 
-//game function
+//game functions
+//Formats a time in milliseconds to the seconds and minutes and displays them
 function updateTime(distance){
     //calculate minutes and seconds from the milliseconds
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -379,6 +397,7 @@ function updateTime(distance){
     //edit label text
     timeLabel.text = `${minutes}:${seconds}`;
 }
+//Formats a time in milliseconds to the seconds and minutes and displays them for the slow timer
 function updateSlow(distance){
     //calculate minutes and seconds from the milliseconds
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -387,6 +406,7 @@ function updateSlow(distance){
     //edit label text
     slowLabel.text = `Slow: ${minutes}:${seconds}`;
 }
+//Halves the speed of all circles in the scene
 function slowDown(group){
     for(let g of group){
         g.xVel /= 2;
@@ -394,6 +414,7 @@ function slowDown(group){
     }
 
 }
+//Returns the speed of the circles (doubles them back to original value)
 function normalSpeed(group){
     for(let g of group){
         g.xVel *= 2;
@@ -401,6 +422,7 @@ function normalSpeed(group){
     }
 }
 
+//Game loop
 function gameLoop(){
     if (paused) return;
 
@@ -440,6 +462,7 @@ function gameLoop(){
             c.move(dt);
         }
 
+        //If circle alive for too long kill it
         if (aliveTime > 10000){
             c.isAlive = false;
             gameScene.removeChild(c);
@@ -449,7 +472,7 @@ function gameLoop(){
     //circle collisions
     for(let c of circles){
         if (c.isAlive && rectsIntersect(c, player)){
-            //deathSound.play();
+            deathSound.play();
             gameScene.removeChild(c);
             c.isAlive = false;
             gameOver();
@@ -468,6 +491,7 @@ function gameLoop(){
 
 }
 
+//Creates circles on a random edge of the screen and shoots it inwards
 function createCircles(number){
     //Generate number of circles told
     for (let i = 0; i < number; i++){

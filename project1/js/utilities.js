@@ -5,12 +5,11 @@ function rectsIntersect(a, b) {
     return ab.x + ab.width > bb.x && ab.x < bb.x + bb.width && ab.y + ab.height > bb.y && ab.y < bb.y + bb.height;
 }
 
-// we use this to keep the ship on the screen
+// keep the ship on screen
 function clamp(val, min, max) {
     return val < min ? min : (val > max ? max : val);
 }
 
-// these 2 helpers are used by classes.js
 function getRandomUnitVector() {
     let x = getRandom(-1, 1);
     let y = getRandom(-1, 1);
@@ -27,6 +26,7 @@ function getRandomUnitVector() {
     return { x: x, y: y };
 }
 
+//Gets a random number, max exclusive
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
