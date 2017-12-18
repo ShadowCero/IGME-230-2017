@@ -128,6 +128,32 @@ function setup() {
 }
 
 function createLabelsAndButtons() {
+    //add background
+    let bg = PIXI.Sprite.fromImage("media/background.png");
+    bg.position.x = 0;
+    bg.position.y = 0;
+    bg.width = 1280;
+    bg.height = 720;
+    let bg2 = PIXI.Sprite.fromImage("media/background.png");
+    bg2.position.x = 0;
+    bg2.position.y = 0;
+    bg2.width = 1280;
+    bg2.height = 720;
+    let bg3 = PIXI.Sprite.fromImage("media/background.png");
+    bg3.position.x = 0;
+    bg3.position.y = 0;
+    bg3.width = 1280;
+    bg3.height = 720;
+    let bg4 = PIXI.Sprite.fromImage("media/background.png");
+    bg4.position.x = 0;
+    bg4.position.y = 0;
+    bg4.width = 1280;
+    bg4.height = 720;
+    startScene.addChild(bg);
+    gameScene.addChild(bg2);
+    helpScene.addChild(bg3);
+    gameOverScene.addChild(bg4);
+
     let buttonStyle = new PIXI.TextStyle({
         fill: 0x01af16,
         fontSize: 48,
@@ -177,7 +203,7 @@ function createLabelsAndButtons() {
         fontSize: 55,
         fontFamily: "geoFont",
         stroke: 0x4b464c,
-        strokeThickness: 1
+        strokeThickness: 3
     })
     helpLabel1.x = 200;
     helpLabel1.y = 100;
@@ -189,7 +215,7 @@ function createLabelsAndButtons() {
         fontSize: 55,
         fontFamily: "geoFont",
         stroke: 0x4b464c,
-        strokeThickness: 1
+        strokeThickness: 3
     })
     helpLabel2.x = 100;
     helpLabel2.y = helpLabel1.y + 150;
@@ -237,7 +263,7 @@ function createLabelsAndButtons() {
         fontSize: 55,
         fontFamily: "geoFont",
         stroke: 0x4b464c,
-        strokeThickness: 1
+        strokeThickness: 3
     })
     gameOverText.style = goTextStyle;
     gameOverText.x = 500;
