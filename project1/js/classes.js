@@ -5,5 +5,7 @@ class Player extends PIXI.Sprite{
         this.scale.set(0.3);
         this.x = x;
         this.y = y;
+        this.vx = 0;
+        this.vy = 0;
     }
 }
